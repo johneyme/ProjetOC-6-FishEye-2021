@@ -4,7 +4,7 @@ fetch(api)
 .then(response => {
    return response.json();
 })
-.then(data => displayData(data.media));
+.then(data => displayData(data.photographers));
 
     async function displayData(photographers) {
         console.log(photographers)

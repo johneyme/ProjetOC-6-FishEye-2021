@@ -1,4 +1,4 @@
-class Photographer {
+/*class Photographer {
     constructor(data) {
         this._name = data.photographers.name
         this._id = data.photographers.id
@@ -33,4 +33,4 @@ class Photographer {
 
 
 
-}
+}*/

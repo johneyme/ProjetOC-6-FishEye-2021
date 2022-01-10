@@ -3,19 +3,27 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a  href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
     </header>
     <main id="main">
       <div class="photograph-header">
+        <!--<h2>${name}</h2>
+        <h3>${city}, ${country}</h3>-->
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <!--<img src="${picture}">-->
       </div>
+      <p>Trier par :</p>
+      <section class="media_section"></section>
     </main>
+
+
+    <!-- DEBUT MODAL CONTACT -->
     <div id="contact_modal">
 			<div class="modal">
 				<header>
@@ -25,12 +33,26 @@
 				<form>
 					<div>
 						<label>Prénom</label>
+            <input />
+            <label>Nom</label>
+            <input />
+            <label>Email</label>
+            <input />
+            <label>Votre message</label>
 						<input />
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/utils/contactForm.js"></script>
+  <!--FIN MODAL CONTACT-->
+
+  
+     <!-- Factories -->
+    <script src="scripts/factories/Photographer.js"></script>
+    <!-- Utils -->
+    <script src="scripts/utils/contactForm.js"></script>
+    <!-- Pages -->
+    <script src="scripts/pages/photographer.js"></script>
   </body>
 </html>

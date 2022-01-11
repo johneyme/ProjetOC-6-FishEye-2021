@@ -1,14 +1,36 @@
-#contact_modal {
-    display: none;
-}
 
 .photograph-header {
+    display: flex;
+    justify-content: space-around;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    border-radius: 5px;
+}
+.photograph-profile h2 {
+    color: #D3573C;
+    font-size: 64px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.photograph-profile h3 {
+    margin-top: 0;
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+    
+}
+
+.photograph-profile  img {
+    margin-top: 50px;
+    border-radius:125px;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
 }
 
 .contact_button {
+    margin-top: 125px;
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -20,6 +42,15 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+
+/* DEBUT MISE EN FORME MODAL */
+
+#contact_modal {
+    display: none;
+}
+
 
 .modal {
     border-radius: 5px;
@@ -74,3 +105,5 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+/* FIN MISE EN FORME MODAL */

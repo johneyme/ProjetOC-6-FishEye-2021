@@ -33,29 +33,19 @@ async function displayData(medias) {
   const mediasSection = document.querySelector(".media_section");
   const spanCountLike = document.querySelector(".span-count-like");
 
-  const likeArray = [];
+  
+  let count = 0
 
   medias.forEach((media) => {
     if (media.photographerId == idValue) {
+      // faire if else si image afficher ... sinon afficher ... get uservideo
       const mediaModel = mediaFactory(media);
       const userCardDOM = mediaModel.getUserProfileDOM();
       mediasSection.appendChild(userCardDOM);
-      likeArray.push(media.likes);
+      count += media.likes
+      
     }
   });
-
-  // FONCTION COMPTEUR DE LIKE ---------------------------
-
-  function countLike() {
-    let sumLike = 0;
-    for (let i = 0; i < likeArray.length; i++) {
-      sumLike += likeArray[i];
-    }
-
-    spanCountLike.innerHTML = sumLike;
-  }
-
-  countLike();
-
-  // -------------------------------------------------------
+  spanCountLike.innerHTML = count;
+  
 }

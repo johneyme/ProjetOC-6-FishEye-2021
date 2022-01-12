@@ -31,6 +31,8 @@ function mediaFactory(data) {
 
   const picture = `assets/media/${idValue}/${image}`;
 
+  // faire fonction getuservideo 
+
   function getUserProfileDOM() {
     const section = document.createElement("section");
     const mediaProfile = `

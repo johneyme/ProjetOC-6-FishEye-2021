@@ -27,11 +27,13 @@ function photographerFactory(data) {
 // FONCTION AFFICHAGE MEDIA DU PHOTOGRAPH ---------------
 
 function mediaFactory(data) {
-  const { title, image, likes, date } = data;
+  const { title, image, likes, date, video } = data;
 
   const picture = `assets/media/${idValue}/${image}`;
+  const movie = `assets/media/${idValue}/${video}`;
 
   // faire fonction getuservideo 
+  
 
   function getUserProfileDOM() {
     const section = document.createElement("section");
@@ -40,7 +42,22 @@ function mediaFactory(data) {
                 <h4>${title}</h4>
                 <p>${likes} <i class="fas fa-heart"></i></p>
             `;
-    section.innerHTML = mediaProfile;
+            const videoProfile = `
+            <video controls >
+    <source src="${movie}">
+            </video>
+                <h4>${title}</h4>
+                <p>${likes} <i class="fas fa-heart"></i></p>
+            `;
+            if(image){
+              section.innerHTML = mediaProfile;
+            } else if(video){
+              section.innerHTML = videoProfile;
+            } /*else if (!picture){
+              `
+                Ne rien afficher ...
+            `
+            }*/
     return section;
   }
 

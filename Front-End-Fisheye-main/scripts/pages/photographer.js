@@ -38,7 +38,6 @@ async function displayData(medias) {
 
   medias.forEach((media) => {
     if (media.photographerId == idValue) {
-      // faire if else si image afficher ... sinon afficher ... get uservideo
       const mediaModel = mediaFactory(media);
       const userCardDOM = mediaModel.getUserProfileDOM();
       mediasSection.appendChild(userCardDOM);

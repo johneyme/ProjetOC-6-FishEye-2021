@@ -20,6 +20,13 @@
   object-fit: cover;
 }
 
+.media_section section video {
+  border-radius: 5px;
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+
 .info-media {
   display: flex;
   justify-content: space-around;

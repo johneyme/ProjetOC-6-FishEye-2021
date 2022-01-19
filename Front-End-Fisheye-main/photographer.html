@@ -14,7 +14,14 @@
     </header>
     <main id="main">
       <section class="photograph-profile"></section>
-      <p>Trier par :</p>
+      <p class="sorts">Trier par:</p>
+      <select name="Trier par:">
+
+        <option>Alphabétique</option>
+        <option>Likes</option>
+        <option>Madrid</option>
+      
+      </select>
       <section class="media_section"></section>
       <aside class="info-media">
         <p><span class="span-count-like"></span> <i class="fas fa-heart"></i></p>
@@ -22,6 +29,7 @@
       </aside>
     </main>
 
+    
 
     <!-- DEBUT MODAL CONTACT -->
     <div id="contact_modal">
@@ -52,6 +60,7 @@
     <script src="scripts/factories/Photographer.js"></script>
     <!-- Utils -->
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/lightbox.js" type="module" defer></script>
     <!-- Pages -->
     <script src="scripts/pages/photographer.js"></script>
   </body>

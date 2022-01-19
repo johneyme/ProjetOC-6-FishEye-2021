@@ -11,6 +11,8 @@ fetch(api)
 
 // FONCTION QUI AFFICHE LES INFOS DU PHOTOGRAPHES
 
+
+
 async function displayProfile(photographers) {
   const profileSection = document.querySelector(".photograph-profile");
   const spanPrice = document.querySelector(".span-price-aside");

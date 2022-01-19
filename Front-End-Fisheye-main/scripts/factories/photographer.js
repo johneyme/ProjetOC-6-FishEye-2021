@@ -38,17 +38,25 @@ function mediaFactory(data) {
   function getUserProfileDOM() {
     const section = document.createElement("section");
     const mediaProfile = `
-            <img src="${picture}">
+            <a href="${picture}">
+              <img src="${picture}">
+              </a>
+            <div class="single-media-info">
                 <h4>${title}</h4>
-                <p>${likes} <i class="fas fa-heart"></i></p>
-            `;
+                <p class="nb-of-likes">${likes} <i class="fas fa-heart"></i></p>
+            </div>
+                `;
             const videoProfile = `
+            <a href="${movie}">
             <video controls >
     <source src="${movie}">
             </video>
+            </a>
+            <div class="single-media-info">
                 <h4>${title}</h4>
                 <p>${likes} <i class="fas fa-heart"></i></p>
-            `;
+                </div>
+             `;
             if(image){
               section.innerHTML = mediaProfile;
             } else if(video){

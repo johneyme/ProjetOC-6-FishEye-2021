@@ -32,40 +32,32 @@ function mediaFactory(data) {
   const picture = `assets/media/${idValue}/${image}`;
   const movie = `assets/media/${idValue}/${video}`;
 
-  // faire fonction getuservideo 
-  
+  // faire fonction getuservideo
 
   function getUserProfileDOM() {
     const section = document.createElement("section");
+    section.setAttribute("id", "single-media");
     const mediaProfile = `
-            <a href="${picture}">
               <img src="${picture}">
-              </a>
             <div class="single-media-info">
                 <h4>${title}</h4>
                 <p class="nb-of-likes">${likes} <i class="fas fa-heart"></i></p>
             </div>
                 `;
-            const videoProfile = `
-            <a href="${movie}">
+    const videoProfile = `
             <video controls >
     <source src="${movie}">
             </video>
-            </a>
             <div class="single-media-info">
                 <h4>${title}</h4>
                 <p>${likes} <i class="fas fa-heart"></i></p>
                 </div>
              `;
-            if(image){
-              section.innerHTML = mediaProfile;
-            } else if(video){
-              section.innerHTML = videoProfile;
-            } /*else if (!picture){
-              `
-                Ne rien afficher ...
-            `
-            }*/
+    if (image) {
+      section.innerHTML = mediaProfile;
+    } else if (video) {
+      section.innerHTML = videoProfile;
+    }
     return section;
   }
 

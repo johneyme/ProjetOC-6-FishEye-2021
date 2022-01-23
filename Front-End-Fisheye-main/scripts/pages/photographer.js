@@ -7,11 +7,10 @@ fetch(api)
   .then((data) => {
     displayProfile(data.photographers);
     displayData(data.media);
+    lightbox();
   });
 
 // FONCTION QUI AFFICHE LES INFOS DU PHOTOGRAPHES
-
-
 
 async function displayProfile(photographers) {
   const profileSection = document.querySelector(".photograph-profile");
@@ -35,18 +34,57 @@ async function displayData(medias) {
   const mediasSection = document.querySelector(".media_section");
   const spanCountLike = document.querySelector(".span-count-like");
 
-  
-  let count = 0
+  let count = 0;
 
   medias.forEach((media) => {
     if (media.photographerId == idValue) {
       const mediaModel = mediaFactory(media);
       const userCardDOM = mediaModel.getUserProfileDOM();
       mediasSection.appendChild(userCardDOM);
-      count += media.likes
-      
+      count += media.likes;
     }
   });
   spanCountLike.innerHTML = count;
-  
+}
+
+function lightbox() {
+  const mediaSelector = document.querySelectorAll(
+    '#single-media > img[src$=".jpg"], img[src$=".jpeg"]'
+  );
+  const lightboxSelector = document.querySelector(".lightbox");
+  const lightboxSrc = document.querySelector(".lightbox-img");
+  const lightboxClose = document.querySelector(".lightbox__close");
+  const lightboxNext = document.querySelector(".lightbox__next");
+  const lightboxPrev = document.querySelector(".lightbox__prev");
+  console.log(mediaSelector);
+
+  /*let mediaLoading =[]
+mediaSelector.forEach(source => mediaLoading.push(source.currentSrc))
+console.log(mediaLoading)*/
+
+  // FLECHE SUIVANT LIGHTBOX
+  lightboxNext.addEventListener("click", function () {
+    lightboxSrc.setAttribute("src", mediaSelector[0].currentSrc);
+  });
+
+  // FLECHE PRECEDENT LIGHTBOX
+  lightboxPrev.addEventListener("click", function () {
+    lightboxSrc.setAttribute("src", mediaSelector[8].currentSrc);
+  });
+
+  // FERMETURE LIGHTBOX
+  lightboxClose.addEventListener("click", function () {
+    lightboxSelector.style.display = "none";
+  });
+
+  // AFFICHAGE LIGHTBOX
+
+  mediaSelector.forEach((link) =>
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      let srcLink = link.currentSrc;
+      lightboxSelector.style.display = "block";
+      lightboxSrc.setAttribute("src", srcLink);
+    })
+  );
 }

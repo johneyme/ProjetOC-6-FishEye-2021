@@ -2,65 +2,77 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
-      <a  href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+      <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
     </header>
     <main id="main">
       <section class="photograph-profile"></section>
       <p class="sorts">Trier par:</p>
       <select name="Trier par:">
-
         <option>Alphabétique</option>
         <option>Likes</option>
         <option>Madrid</option>
-      
       </select>
+
       <section class="media_section"></section>
       <aside class="info-media">
-        <p><span class="span-count-like"></span> <i class="fas fa-heart"></i></p>
+        <p>
+          <span class="span-count-like"></span> <i class="fas fa-heart"></i>
+        </p>
         <p><span class="span-price-aside"></span>€ /jour</p>
       </aside>
     </main>
 
-    
+    <div class="lightbox">
+      <button class="lightbox__close">Fermer</button>
+      <button class="lightbox__next">Suivant</button>
+      <button class="lightbox__prev">Précédent</button>
+      <div class="lightbox__container">
+        <img class="lightbox-img" src="" />
+      </div>
+    </div>
 
     <!-- DEBUT MODAL CONTACT -->
     <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi<br><span class="span-name-form"></span></h2>
+      <div class="modal">
+        <header>
+          <h2>Contactez-moi<br /><span class="span-name-form"></span></h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
+        <form>
+          <div>
+            <label>Prénom</label>
             <input />
             <label>Nom</label>
             <input />
             <label>Email</label>
             <input />
             <label>Votre message</label>
-						<input />
-					</div>
+            <input />
+          </div>
           <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-  <!--FIN MODAL CONTACT-->
+        </form>
+      </div>
+    </div>
+    <!--FIN MODAL CONTACT-->
 
-  
-     <!-- Factories -->
+    <!-- Factories -->
     <script src="scripts/factories/Photographer.js"></script>
     <!-- Utils -->
     <script src="scripts/utils/contactForm.js"></script>
-    <script src="scripts/utils/lightbox.js" type="module" defer></script>
     <!-- Pages -->
     <script src="scripts/pages/photographer.js"></script>
   </body>

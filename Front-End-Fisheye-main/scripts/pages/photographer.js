@@ -47,6 +47,10 @@ async function displayData(medias) {
   spanCountLike.innerHTML = count;
 }
 
+
+let url = null
+
+
 function lightbox() {
   const mediaSelector = document.querySelectorAll(
     '#single-media > img[src$=".jpg"], img[src$=".jpeg"]'
@@ -58,13 +62,21 @@ function lightbox() {
   const lightboxPrev = document.querySelector(".lightbox__prev");
   console.log(mediaSelector);
 
-  /*let mediaLoading =[]
+
+let mediaLoading =[]
 mediaSelector.forEach(source => mediaLoading.push(source.currentSrc))
-console.log(mediaLoading)*/
+console.log(mediaLoading)
 
   // FLECHE SUIVANT LIGHTBOX
-  lightboxNext.addEventListener("click", function () {
-    lightboxSrc.setAttribute("src", mediaSelector[0].currentSrc);
+  lightboxNext.addEventListener("click", function (e) {
+    e.preventDefault();
+    const i = mediaLoading.findIndex(media => media === url)
+    index = i+1
+    lightboxSrc.setAttribute("src", mediaSelector[index].currentSrc);
+    console.log(index)
+    
+    
+    
   });
 
   // FLECHE PRECEDENT LIGHTBOX
@@ -78,13 +90,17 @@ console.log(mediaLoading)*/
   });
 
   // AFFICHAGE LIGHTBOX
-
+ 
   mediaSelector.forEach((link) =>
     link.addEventListener("click", (e) => {
       e.preventDefault();
       let srcLink = link.currentSrc;
       lightboxSelector.style.display = "block";
-      lightboxSrc.setAttribute("src", srcLink);
+      lightboxSrc.setAttribute("src", srcLink);    
+      url = srcLink
     })
   );
 }
+
+
+ 

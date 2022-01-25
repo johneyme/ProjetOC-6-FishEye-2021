@@ -49,6 +49,7 @@ async function displayData(medias) {
 
 
 let url = null
+let indexMedia = 0
 
 
 function lightbox() {
@@ -70,18 +71,21 @@ console.log(mediaLoading)
   // FLECHE SUIVANT LIGHTBOX
   lightboxNext.addEventListener("click", function (e) {
     e.preventDefault();
-    const i = mediaLoading.findIndex(media => media === url)
-    index = i+1
-    lightboxSrc.setAttribute("src", mediaSelector[index].currentSrc);
-    console.log(index)
-    
-    
-    
+    if ( indexMedia < mediaLoading.length-1){
+    indexMedia++
+    lightboxSrc.setAttribute("src", mediaSelector[indexMedia].currentSrc);
+  } 
+
   });
 
   // FLECHE PRECEDENT LIGHTBOX
-  lightboxPrev.addEventListener("click", function () {
-    lightboxSrc.setAttribute("src", mediaSelector[8].currentSrc);
+  lightboxPrev.addEventListener("click", function (e) {
+    e.preventDefault();
+    if ( indexMedia > 0){
+    indexMedia--
+    lightboxSrc.setAttribute("src", mediaSelector[indexMedia].currentSrc);
+    } 
+    
   });
 
   // FERMETURE LIGHTBOX
@@ -98,6 +102,8 @@ console.log(mediaLoading)
       lightboxSelector.style.display = "block";
       lightboxSrc.setAttribute("src", srcLink);    
       url = srcLink
+      indexMedia = mediaLoading.findIndex(media => media === url)
+
     })
   );
 }

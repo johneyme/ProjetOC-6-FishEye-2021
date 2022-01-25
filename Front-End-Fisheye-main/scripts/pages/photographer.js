@@ -33,24 +33,47 @@ async function displayProfile(photographers) {
 async function displayData(medias) {
   const mediasSection = document.querySelector(".media_section");
   const spanCountLike = document.querySelector(".span-count-like");
+  const orderbySelect = document.querySelector("#orderby");
+  console.log(orderbySelect[1]);
 
   let count = 0;
+  let mediaArray = [];
+  console.log(mediaArray);
 
   medias.forEach((media) => {
     if (media.photographerId == idValue) {
+      mediaArray.push(media);
+    }
+  });
+
+  // SYSTEME DE TRI
+
+  if (orderbySelect[1].selected) {
+    mediaArray.sort(function (a, b) {
+      return a.likes - b.likes;
+    });
+  }
+
+  affichageMedia();
+
+  // AFFICHAGE MEDIA VIA mediaArray
+
+  function affichageMedia() {
+    mediaArray.forEach((media) => {
       const mediaModel = mediaFactory(media);
       const userCardDOM = mediaModel.getUserProfileDOM();
       mediasSection.appendChild(userCardDOM);
       count += media.likes;
-    }
-  });
+    });
+  }
+
   spanCountLike.innerHTML = count;
 }
 
+// --------------------- LIGHTBOX ----------------------------
 
-let url = null
-let indexMedia = 0
-
+let url = null;
+let indexMedia = 0;
 
 function lightbox() {
   const mediaSelector = document.querySelectorAll(
@@ -61,31 +84,26 @@ function lightbox() {
   const lightboxClose = document.querySelector(".lightbox__close");
   const lightboxNext = document.querySelector(".lightbox__next");
   const lightboxPrev = document.querySelector(".lightbox__prev");
-  console.log(mediaSelector);
 
-
-let mediaLoading =[]
-mediaSelector.forEach(source => mediaLoading.push(source.currentSrc))
-console.log(mediaLoading)
+  let mediaLoading = [];
+  mediaSelector.forEach((source) => mediaLoading.push(source.currentSrc));
 
   // FLECHE SUIVANT LIGHTBOX
   lightboxNext.addEventListener("click", function (e) {
     e.preventDefault();
-    if ( indexMedia < mediaLoading.length-1){
-    indexMedia++
-    lightboxSrc.setAttribute("src", mediaSelector[indexMedia].currentSrc);
-  } 
-
+    if (indexMedia < mediaLoading.length - 1) {
+      indexMedia++;
+      lightboxSrc.setAttribute("src", mediaSelector[indexMedia].currentSrc);
+    }
   });
 
   // FLECHE PRECEDENT LIGHTBOX
   lightboxPrev.addEventListener("click", function (e) {
     e.preventDefault();
-    if ( indexMedia > 0){
-    indexMedia--
-    lightboxSrc.setAttribute("src", mediaSelector[indexMedia].currentSrc);
-    } 
-    
+    if (indexMedia > 0) {
+      indexMedia--;
+      lightboxSrc.setAttribute("src", mediaSelector[indexMedia].currentSrc);
+    }
   });
 
   // FERMETURE LIGHTBOX
@@ -94,19 +112,15 @@ console.log(mediaLoading)
   });
 
   // AFFICHAGE LIGHTBOX
- 
+
   mediaSelector.forEach((link) =>
     link.addEventListener("click", (e) => {
       e.preventDefault();
       let srcLink = link.currentSrc;
       lightboxSelector.style.display = "block";
-      lightboxSrc.setAttribute("src", srcLink);    
-      url = srcLink
-      indexMedia = mediaLoading.findIndex(media => media === url)
-
+      lightboxSrc.setAttribute("src", srcLink);
+      url = srcLink;
+      indexMedia = mediaLoading.findIndex((media) => media === url);
     })
   );
 }
-
-
- 

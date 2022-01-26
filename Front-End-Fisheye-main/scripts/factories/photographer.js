@@ -94,4 +94,4 @@ function profileFactory(data) {
 
 const queryString = window.location.search;
 const idValue = new URLSearchParams(queryString).get("id");
-console.log(idValue);
+

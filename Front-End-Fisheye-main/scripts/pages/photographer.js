@@ -7,8 +7,8 @@ fetch(api)
   .then((data) => {
     displayProfile(data.photographers);
     displayData(data.media);
-    lightboxController();
     lightbox();
+    lightboxController();
   });
 
 // ------------------  FONCTIONS QUI AFFICHE LES INFOS DU PHOTOGRAPHES -------------
@@ -45,12 +45,7 @@ async function displayData(medias) {
     }
   });
 
-  mediaArray.sort(function (a, b) {
-    if (a.title < b.title) {
-    return -1 }
-  });
-
-
+  console.log(mediaArray);
 
   // ----------------- SYSTEME DE TRI ------------------------
 
@@ -78,7 +73,8 @@ async function displayData(medias) {
     } else if (this.value == "alphabetique") {
       mediaArray.sort(function (a, b) {
         if (a.title < b.title) {
-        return -1 }
+          return -1;
+        }
       });
       mediasSection.innerHTML = "";
       affichageMedia();
@@ -113,19 +109,37 @@ let mediaLoading = [];
 
 function lightbox() {
   const mediaSelector = document.querySelectorAll(
-    '#single-media > img[src$=".jpg"], img[src$=".jpeg"]'
+    '#single-media > img[src$=".jpg"], img[src$=".jpeg"], #single-media > video'
   );
   const lightboxSelector = document.querySelector(".lightbox");
   const lightboxSrc = document.querySelector(".lightbox-img");
+  const lightboxVideo = document.querySelector(".lightbox__container > video");
+  const sourceVideo = document.querySelector(".source-video");
 
-  mediaSelector.forEach((source) => mediaLoading.push(source.currentSrc));
+  console.log(mediaSelector);
+
+  mediaSelector.forEach((source) => {
+    mediaLoading.push(source.currentSrc);
+  });
+  console.log(mediaLoading);
 
   mediaSelector.forEach((link) =>
     link.addEventListener("click", (e) => {
       e.preventDefault();
+      console.log(link);
       let srcLink = link.currentSrc;
-      lightboxSelector.style.display = "block";
-      lightboxSrc.setAttribute("src", srcLink);
+      console.log(srcLink);
+      if (link.nodeName == "IMG") {
+        lightboxSelector.style.display = "block";
+        lightboxSrc.style.display = "block";
+        lightboxSrc.setAttribute("src", srcLink);
+        lightboxVideo.style.display = "none";
+      } else if (link.nodeName == "VIDEO") {
+        lightboxSelector.style.display = "block";
+        lightboxSrc.style.display = "none";
+        lightboxVideo.style.display = "block";
+        sourceVideo.setAttribute("src", srcLink);
+      }
       url = srcLink;
       indexMedia = mediaLoading.findIndex((media) => media === url);
     })
@@ -146,6 +160,7 @@ function lightboxController() {
     e.preventDefault();
     if (indexMedia < mediaLoading.length - 1) {
       indexMedia++;
+      console.log(mediaLoading);
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     }
   });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -16,11 +16,11 @@
   </head>
   <body>
     <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="logo du site" /></a>
     </header>
     <main id="main">
       <section class="photograph-profile"></section>
-      <p class="sorts">Trier par:</p>
+      <label for="orderby" class="sorts">Trier par:</p>
       <select name="Trier par:" id="orderby">
         <option value="alphabetique" selected="selected">Alphabétique</option>
         <option value="likes">Likes</option>
@@ -38,11 +38,11 @@
 
     <!-- DEBUT LIGHTBOX -->
     <div class="lightbox">
-      <button class="lightbox__close" alt="bouton fermer lightbox"></button>
-      <button class="lightbox__next" alt="bouton suivant lightbox"></button>
-      <button class="lightbox__prev" alt="bouton precedent lightbox"></button>
+      <button class="lightbox__close" alt="bouton fermer lightbox"aria-label="Croix de fermeture"></button>
+      <button class="lightbox__next" alt="bouton suivant lightbox" aria-label="Flèche suivant"></button>
+      <button class="lightbox__prev" alt="bouton precedent lightbox" aria-label="Flèche précédent"></button>
       <div class="lightbox__container">
-        <img class="lightbox-img" src="" />
+        <img class="lightbox-img" src="" alt="image de la lightbox"/>
         <video class="lightbox-video" controls >
           <source class="source-video" src="">
         </video>
@@ -52,26 +52,29 @@
     <!-- FIN LIGHTBOX -->
 
     <!-- DEBUT MODAL CONTACT -->
+
     <div id="contact_modal">
+      
       <div class="modal">
         <header>
           <h2>Contactez-moi<br /><span class="span-name-form"></span></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="Croix de fermeture" aria-label="Croix de fermeture" onclick="closeModal()" />
         </header>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input />
-            <label>Nom</label>
-            <input />
-            <label>Email</label>
-            <input />
-            <label>Votre message</label>
-            <input />
+        <form action="" method="get" class="info-form">
+          <div class="info-form">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" required/>
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" required/>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" required/>
+            <label for="message">Votre message</label>
+            <input type="text" name="message" id="message" required/>
           </div>
           <button class="contact_button">Envoyer</button>
         </form>
       </div>
+
     </div>
     <!--FIN MODAL CONTACT-->
 

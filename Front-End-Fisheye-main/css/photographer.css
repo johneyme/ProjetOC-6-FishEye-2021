@@ -49,6 +49,32 @@
   align-items: center;
 }
 
+/* DEBUT "TRIEZ PAR" */
+.sorts {
+  
+  margin-left: 90px;
+  font-weight: 600;
+
+} 
+
+#orderby {
+  
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 135px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  height: 50px;
+  margin-top: 25px;
+  margin-left: 25px;
+  
+}
+
+/* FIN "TRIEZ PAR" */
+
 
 /* DEBUT MISE EN FORME MODAL */
 

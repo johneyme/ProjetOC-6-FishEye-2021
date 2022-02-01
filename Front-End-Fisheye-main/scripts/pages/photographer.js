@@ -108,9 +108,7 @@ let mediaLoading = [];
 // AFFICHAGE LIGHTBOX
 
 function lightbox() {
-  const mediaSelector = document.querySelectorAll(
-    '#single-media > img[src$=".jpg"], img[src$=".jpeg"], #single-media > video'
-  );
+  const mediaSelector = document.querySelectorAll('.source-media');
   const lightboxSelector = document.querySelector(".lightbox");
   const lightboxSrc = document.querySelector(".lightbox-img");
   const lightboxVideo = document.querySelector(".lightbox__container > video");
@@ -122,6 +120,29 @@ function lightbox() {
     mediaLoading.push(source.currentSrc);
   });
   console.log(mediaLoading);
+
+ 
+  /*function mediaOnScreen(e) {
+    e.preventDefault();
+    console.log(link);
+    let srcLink = link.currentSrc;
+    console.log(srcLink);
+    if (link.nodeName == "IMG") {
+      lightboxSelector.style.display = "block";
+      lightboxSrc.style.display = "block";
+      lightboxSrc.setAttribute("src", srcLink);
+      lightboxVideo.style.display = "none";
+    } else if (link.nodeName == "VIDEO") {
+      lightboxSelector.style.display = "block";
+      lightboxSrc.style.display = "none";
+      lightboxVideo.style.display = "block";
+      sourceVideo.setAttribute("src", srcLink);
+    }
+    url = srcLink;
+    indexMedia = mediaLoading.findIndex((media) => media === url);
+  }*/
+
+
 
   mediaSelector.forEach((link) =>
     link.addEventListener("click", (e) => {

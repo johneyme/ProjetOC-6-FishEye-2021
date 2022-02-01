@@ -9,7 +9,7 @@ function photographerFactory(data) {
     const article = document.createElement("article");
 
     const photographerCard = `
-            <img src="${picture}">
+            <img alt='photo de ${name}' src="${picture}">
                 <a class="photographClick" href="photographer.html?id=${id}">
                     <h2>${name}</h2>
                 </a>
@@ -27,7 +27,7 @@ function photographerFactory(data) {
 // FONCTION AFFICHAGE MEDIA DU PHOTOGRAPH ---------------
 
 function mediaFactory(data) {
-  const { title, image, likes, date, video } = data;
+  const { title, image, likes, video } = data;
 
   const picture = `assets/media/${idValue}/${image}`;
   const movie = `assets/media/${idValue}/${video}`;
@@ -38,15 +38,15 @@ function mediaFactory(data) {
     const section = document.createElement("section");
     section.setAttribute("id", "single-media");
     const mediaProfile = `
-              <img src="${picture}">
+              <img class="source-media" alt='${title}' src="${picture} ">
             <div class="single-media-info">
                 <h4>${title}</h4>
                 <p class="nb-of-likes">${likes} <i class="fas fa-heart"></i></p>
             </div>
                 `;
     const videoProfile = `
-            <video controls >
-    <source src="${movie}">
+            <video class="source-media" alt='${title}' controls >
+    <source  src="${movie}">
             </video>
             <div class="single-media-info">
                 <h4>${title}</h4>
@@ -67,7 +67,7 @@ function mediaFactory(data) {
 //FONCTION AFFICHAGE DU PROFIL PHOTOGRAPH --------------
 
 function profileFactory(data) {
-  const { name, portrait, city, country, tagline, price, id } = data;
+  const { name, portrait, city, country, tagline } = data;
 
   const picture = `assets/photographers/${portrait}`;
 
@@ -81,7 +81,7 @@ function profileFactory(data) {
               <p class="tagline">${tagline}</p>
                 </div>
               <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-              <img src="${picture}"></img>
+              <img alt="photo de ${name}" src="${picture}"></img>
             `;
     section.innerHTML = profile;
     return section;

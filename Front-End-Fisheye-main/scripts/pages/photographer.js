@@ -111,7 +111,7 @@ function lightbox() {
   const mediaSelector = document.querySelectorAll('.source-media');
   const lightboxSelector = document.querySelector(".lightbox");
   const lightboxSrc = document.querySelector(".lightbox-img");
-  const lightboxVideo = document.querySelector(".lightbox__container > video");
+  const lightboxVideo = document.querySelector(".lightbox-video");
   const sourceVideo = document.querySelector(".source-video");
 
   console.log(mediaSelector);

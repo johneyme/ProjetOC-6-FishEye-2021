@@ -45,8 +45,8 @@ function mediaFactory(data) {
             </div>
                 `;
     const videoProfile = `
-            <video class="source-media" alt='${title}' controls >
-    <source  src="${movie}">
+            <video  alt='${title}' >
+    <source class="source-media"  src="${movie}">
             </video>
             <div class="single-media-info">
                 <h4>${title}</h4>

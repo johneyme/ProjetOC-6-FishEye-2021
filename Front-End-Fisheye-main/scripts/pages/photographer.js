@@ -83,6 +83,9 @@ async function displayData(medias) {
     }
   });
 
+  mediaArray.sort(function (a, b) {
+    return a.likes - b.likes;
+  });
   affichageMedia();
 
   //  ----------------- AFFICHAGE MEDIA VIA mediaArray ---------------------
@@ -117,7 +120,7 @@ function lightbox() {
   console.log(mediaSelector);
 
   mediaSelector.forEach((source) => {
-    mediaLoading.push(source.currentSrc);
+    mediaLoading.push(source.getAttribute("src"));
   });
   console.log(mediaLoading);
 
@@ -143,19 +146,21 @@ function lightbox() {
   }*/
 
 
-
+ console.log(mediaSelector)
   mediaSelector.forEach((link) =>
     link.addEventListener("click", (e) => {
       e.preventDefault();
       console.log(link);
-      let srcLink = link.currentSrc;
+      let srcLink = link.getAttribute("src");
       console.log(srcLink);
-      if (link.nodeName == "IMG") {
+      if (link.getAttribute("src").includes('.jpg')) {
+        console.log("ok")
         lightboxSelector.style.display = "block";
         lightboxSrc.style.display = "block";
         lightboxSrc.setAttribute("src", srcLink);
         lightboxVideo.style.display = "none";
-      } else if (link.nodeName == "VIDEO") {
+      } else if (link.getAttribute("src").includes('.mp4')) {
+        console.log("ok")
         lightboxSelector.style.display = "block";
         lightboxSrc.style.display = "none";
         lightboxVideo.style.display = "block";
@@ -181,10 +186,10 @@ function lightboxController() {
     e.preventDefault();
     if (indexMedia < mediaLoading.length - 1) {
       indexMedia++;
-      console.log(mediaLoading);
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     }
   });
+  // if mp4 alors video sinon img .include(.mp4)
 
   // Fleche précédent Lightbox
   lightboxPrev.addEventListener("click", function (e) {

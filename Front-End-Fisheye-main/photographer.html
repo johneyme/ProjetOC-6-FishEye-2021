@@ -22,15 +22,15 @@
       <section class="photograph-profile"></section>
       <label for="orderby" class="sorts">Trier par:</label>
       <select aria-label="selection tri des médias" name="Trier par:" id="orderby" >
-        <option value="alphabetique" selected="selected">Alphabétique</option>
-        <option value="likes">Likes</option>
+        <option value="likes" selected="selected">Popularité</option>
+        <option value="alphabetique">Alphabétique</option>
         <option value="date">Date</option>
       </select>
 
       <section class="media_section"></section>
       <aside class="info-media">
         <p>
-          <span class="span-count-like"></span> <i class="fas fa-heart"></i>
+          <span class="span-count-like"></span> <i class="fas fa-heart" aria-label="logo coeur"></i>
         </p>
         <p><span class="span-price-aside"></span>€ /jour</p>
       </aside>
@@ -58,7 +58,7 @@
       <div class="modal">
         <header>
           <h2>Contactez-moi<br /><span class="span-name-form"></span></h2>
-          <img src="assets/icons/close.svg" alt="Croix de fermeture" aria-label="Croix de fermeture" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="Croix de fermeture" onclick="closeModal()" />
         </header>
         <form action="" method="get" class="info-form">
           <div class="info-form">

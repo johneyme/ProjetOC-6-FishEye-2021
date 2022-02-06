@@ -117,50 +117,24 @@ function lightbox() {
   const lightboxVideo = document.querySelector(".lightbox-video");
   const sourceVideo = document.querySelector(".source-video");
 
-  console.log(mediaSelector);
+  
 
   mediaSelector.forEach((source) => {
     mediaLoading.push(source.getAttribute("src"));
   });
-  console.log(mediaLoading);
-
- 
-  /*function mediaOnScreen(e) {
-    e.preventDefault();
-    console.log(link);
-    let srcLink = link.currentSrc;
-    console.log(srcLink);
-    if (link.nodeName == "IMG") {
-      lightboxSelector.style.display = "block";
-      lightboxSrc.style.display = "block";
-      lightboxSrc.setAttribute("src", srcLink);
-      lightboxVideo.style.display = "none";
-    } else if (link.nodeName == "VIDEO") {
-      lightboxSelector.style.display = "block";
-      lightboxSrc.style.display = "none";
-      lightboxVideo.style.display = "block";
-      sourceVideo.setAttribute("src", srcLink);
-    }
-    url = srcLink;
-    indexMedia = mediaLoading.findIndex((media) => media === url);
-  }*/
+  
 
 
- console.log(mediaSelector)
   mediaSelector.forEach((link) =>
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log(link);
       let srcLink = link.getAttribute("src");
-      console.log(srcLink);
       if (link.getAttribute("src").includes('.jpg')) {
-        console.log("ok")
         lightboxSelector.style.display = "block";
         lightboxSrc.style.display = "block";
         lightboxSrc.setAttribute("src", srcLink);
         lightboxVideo.style.display = "none";
-      } else if (link.getAttribute("src").includes('.mp4')) {
-        console.log("ok")
+      } else if (srcLink.includes(".mp4") ) {
         lightboxSelector.style.display = "block";
         lightboxSrc.style.display = "none";
         lightboxVideo.style.display = "block";
@@ -180,25 +154,71 @@ function lightboxController() {
   const lightboxClose = document.querySelector(".lightbox__close");
   const lightboxNext = document.querySelector(".lightbox__next");
   const lightboxPrev = document.querySelector(".lightbox__prev");
+  const lightboxVideo = document.querySelector(".lightbox-video");
+  const sourceVideo = document.querySelector(".source-video")
 
-  // Fleche suivante Lightbox
-  lightboxNext.addEventListener("click", function (e) {
-    e.preventDefault();
+// -------- Utils Function to Lightbox Controller ---------------------
+
+  function conditionNextPrev() {
+    if (mediaLoading[indexMedia].includes('.jpg')) {
+      lightboxSelector.style.display = "block";
+      lightboxSrc.style.display = "block";
+      lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+      lightboxVideo.style.display = "none";
+    } else if (mediaLoading[indexMedia].includes(".mp4") ) {
+      lightboxSelector.style.display = "block";
+      lightboxSrc.style.display = "none";
+      lightboxVideo.style.display = "block";
+      sourceVideo.setAttribute("src", mediaLoading[indexMedia]);
+    }
+  }
+
+  function nextIndexMedia() {
     if (indexMedia < mediaLoading.length - 1) {
       indexMedia++;
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     }
-  });
-  // if mp4 alors video sinon img .include(.mp4)
+  }
 
-  // Fleche précédent Lightbox
-  lightboxPrev.addEventListener("click", function (e) {
-    e.preventDefault();
+  function prevIndexMedia() {
     if (indexMedia > 0) {
       indexMedia--;
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     }
+  }
+// -------------------------------------------------------------
+
+  
+  // Fleche suivante Lightbox
+  lightboxNext.addEventListener("click", function (e) {
+    e.preventDefault();
+    nextIndexMedia()
+    conditionNextPrev()
   });
+
+  lightboxNext.addEventListener("keydown", event => {
+    if (event.isComposing || event.key === 39) {
+    nextIndexMedia()
+    conditionNextPrev()
+    }
+  });
+
+  // Fleche précédent Lightbox
+
+  lightboxPrev.addEventListener("click", function (e) {
+    e.preventDefault();
+    prevIndexMedia()
+    conditionNextPrev()
+    
+  });
+
+  lightboxNext.addEventListener("keydown", event => {
+    if (event.isComposing || event.key === 37) {
+    prevIndexMedia()
+    conditionNextPrev()
+    }
+  });
+
 
   // Fermeture Ligthbox
   lightboxClose.addEventListener("click", function () {

@@ -205,13 +205,7 @@ function lightboxController() {
     conditionNextPrev()
   });
 
-  window.addEventListener("keyup", event => {
-  
-    if (event.key === "ArrowRight") {
-    nextIndexMedia()
-    conditionNextPrev()
-    }
-  });
+
 
   // Fleche précédent Lightbox
 
@@ -222,24 +216,29 @@ function lightboxController() {
     
   });
 
+ 
+  // Fermeture Ligthbox
+  lightboxClose.addEventListener("click", function () {
+    lightboxSelector.style.display = "none";
+  });
+
+  // Controller Lightbox clavier 
+  
   window.addEventListener("keyup", event => {
     
     if (event.key === "ArrowLeft") {
     prevIndexMedia()
     conditionNextPrev()
     }
-  });
-
-
-  // Fermeture Ligthbox
-  lightboxClose.addEventListener("click", function () {
-    lightboxSelector.style.display = "none";
-  });
-
-  window.addEventListener("keyup", event => {
-   
+    if (event.key === "ArrowRight") {
+      nextIndexMedia()
+      conditionNextPrev()
+      }
+      
     if (event.key === "Escape") {
       lightboxSelector.style.display = "none";
     }
+      
   });
+
 }

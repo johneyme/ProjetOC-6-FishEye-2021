@@ -28,7 +28,6 @@
 }
 
 .contact_button {
-  margin-top: 125px;
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -48,6 +47,8 @@
   color:#901c1c;
   align-items: center;
 }
+
+
 
 /* DEBUT "TRIEZ PAR" */
 .sorts {
@@ -151,6 +152,10 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+#message {
+  height: 150px;
 }
 
 /* FIN MISE EN FORME MODAL */

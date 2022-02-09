@@ -37,6 +37,7 @@ function mediaFactory(data) {
   function getUserProfileDOM() {
     const section = document.createElement("section");
     section.setAttribute("id", "single-media");
+    section.setAttribute("tabindex", 0)
     const mediaProfile = `
               <img class="source-media" alt='${title}' src="${picture} ">
             <div class="single-media-info">

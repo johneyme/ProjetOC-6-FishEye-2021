@@ -126,24 +126,27 @@ function lightbox() {
 
 
   mediaSelector.forEach((link) =>
+   { 
+     let srcLink = link.getAttribute("src");
+  if(srcLink.includes('.jpg')) {
     link.addEventListener("click", (e) => {
-      e.preventDefault();
-      let srcLink = link.getAttribute("src");
-      if (link.getAttribute("src").includes('.jpg')) {
-        lightboxSelector.style.display = "block";
+      lightboxSelector.style.display = "block";
         lightboxSrc.style.display = "block";
         lightboxSrc.setAttribute("src", srcLink);
         lightboxVideo.style.display = "none";
-      } else if (srcLink.includes(".mp4") ) {
-        lightboxSelector.style.display = "block";
+        indexMedia = mediaLoading.indexOf(srcLink)
+  })
+ }
+  else {
+    link.parentNode.addEventListener("click", (e)=> {
+      lightboxSelector.style.display = "block";
         lightboxSrc.style.display = "none";
         lightboxVideo.style.display = "block";
         sourceVideo.setAttribute("src", srcLink);
-      }
-      url = srcLink;
-      indexMedia = mediaLoading.findIndex((media) => media === url);
+        indexMedia = mediaLoading.indexOf(srcLink)
     })
-  );
+  }
+   } );
 }
 
 //  FONCTION CONTROLE DE LA LIGHTBOX
@@ -177,12 +180,18 @@ function lightboxController() {
     if (indexMedia < mediaLoading.length - 1) {
       indexMedia++;
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+    } else {
+      indexMedia = 0
+      lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     }
   }
 
   function prevIndexMedia() {
     if (indexMedia > 0) {
       indexMedia--;
+      lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+    } else {
+      indexMedia =  mediaLoading.length - 1
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     }
   }
@@ -196,8 +205,9 @@ function lightboxController() {
     conditionNextPrev()
   });
 
-  lightboxNext.addEventListener("keydown", event => {
-    if (event.isComposing || event.key === 39) {
+  window.addEventListener("keyup", event => {
+  
+    if (event.key === "ArrowRight") {
     nextIndexMedia()
     conditionNextPrev()
     }
@@ -212,8 +222,9 @@ function lightboxController() {
     
   });
 
-  lightboxNext.addEventListener("keydown", event => {
-    if (event.isComposing || event.key === 37) {
+  window.addEventListener("keyup", event => {
+    
+    if (event.key === "ArrowLeft") {
     prevIndexMedia()
     conditionNextPrev()
     }
@@ -223,5 +234,12 @@ function lightboxController() {
   // Fermeture Ligthbox
   lightboxClose.addEventListener("click", function () {
     lightboxSelector.style.display = "none";
+  });
+
+  window.addEventListener("keyup", event => {
+   
+    if (event.key === "Escape") {
+      lightboxSelector.style.display = "none";
+    }
   });
 }

@@ -16,12 +16,18 @@
   </head>
   <body>
     <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="logo du site" /></a>
+      <a href="index.html"
+        ><img src="assets/images/logo.png" class="logo" alt="logo du site"
+      /></a>
     </header>
     <main id="main">
       <section class="photograph-profile"></section>
       <label for="orderby" class="sorts">Trier par:</label>
-      <select aria-label="selection tri des médias" name="Trier par:" id="orderby" >
+      <select
+        aria-label="selection tri des médias"
+        name="Trier par:"
+        id="orderby"
+      >
         <option value="likes" selected="selected">Popularité</option>
         <option value="alphabetique">Alphabétique</option>
         <option value="date">Date</option>
@@ -30,7 +36,8 @@
       <section class="media_section"></section>
       <aside class="info-media">
         <p>
-          <span class="span-count-like"></span> <i class="fas fa-heart" aria-label="logo coeur"></i>
+          <span class="span-count-like"></span>
+          <i class="fas fa-heart" aria-label="logo coeur"></i>
         </p>
         <p><span class="span-price-aside"></span>€ /jour</p>
       </aside>
@@ -38,13 +45,16 @@
 
     <!-- DEBUT LIGHTBOX -->
     <div class="lightbox">
-      <button class="lightbox__close"aria-label="Croix de fermeture"></button>
+      <button class="lightbox__close" aria-label="Croix de fermeture"></button>
       <button class="lightbox__next" aria-label="Flèche suivant"></button>
       <button class="lightbox__prev" aria-label="Flèche précédent"></button>
       <div class="lightbox__container">
         <img class="lightbox-img" src="" />
-        <video class="lightbox-video" controls >
-          <source class="source-video" src="assets/media/930/Sport_Tricks_in_the_air.mp4">
+        <video class="lightbox-video" controls>
+          <source
+            class="source-video"
+            src="assets/media/930/Sport_Tricks_in_the_air.mp4"
+          />
         </video>
       </div>
     </div>
@@ -54,27 +64,29 @@
     <!-- DEBUT MODAL CONTACT -->
 
     <div id="contact_modal">
-      
       <div class="modal">
         <header>
           <h2>Contactez-moi<br /><span class="span-name-form"></span></h2>
-          <img src="assets/icons/close.svg" alt="Croix de fermeture" onclick="closeModal()" />
+          <img
+            src="assets/icons/close.svg"
+            alt="Croix de fermeture"
+            onclick="closeModal()"
+          />
         </header>
         <form action="" method="get" class="info-form">
           <div class="info-form">
             <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom"/>
+            <input type="text" name="prenom" id="prenom" />
             <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom"/>
+            <input type="text" name="nom" id="nom" />
             <label for="email">Email</label>
-            <input type="text" name="email" id="email"/>
+            <input type="text" name="email" id="email" />
             <label for="message">Votre message</label>
-            <input type="text" name="message" id="message"/>
+            <textarea type="text" name="message" id="message"></textarea>
           </div>
           <button class="contact_button">Envoyer</button>
         </form>
       </div>
-
     </div>
     <!--FIN MODAL CONTACT-->
 

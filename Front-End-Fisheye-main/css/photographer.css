@@ -28,6 +28,7 @@
 }
 
 .contact_button {
+  margin-top: 125px;
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -44,22 +45,17 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  color:#901c1c;
+  color: #901c1c;
   align-items: center;
 }
 
-
-
 /* DEBUT "TRIEZ PAR" */
 .sorts {
-  
   margin-left: 90px;
   font-weight: 600;
-
-} 
+}
 
 #orderby {
-  
   font-weight: bold;
   color: white;
   padding: 11px;
@@ -71,11 +67,9 @@
   height: 50px;
   margin-top: 25px;
   margin-left: 25px;
-  
 }
 
 /* FIN "TRIEZ PAR" */
-
 
 /* DEBUT MISE EN FORME MODAL */
 
@@ -90,7 +84,6 @@
   z-index: 10;
   overflow: auto;
 }
-
 
 .modal {
   border-radius: 5px;
@@ -155,8 +148,8 @@ form input {
 }
 
 #message {
-  height: 150px;
+  width: 100%;
+  padding-bottom: 150px;
 }
 
 /* FIN MISE EN FORME MODAL */
-

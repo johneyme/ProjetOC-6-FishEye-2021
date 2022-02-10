@@ -37,7 +37,7 @@ function mediaFactory(data) {
   function getUserProfileDOM() {
     const section = document.createElement("section");
     section.setAttribute("id", "single-media");
-    section.setAttribute("tabindex", 0)
+    section.setAttribute("tabindex", 0);
     const mediaProfile = `
               <img class="source-media" alt='${title}' src="${picture} ">
             <div class="single-media-info">
@@ -95,4 +95,3 @@ function profileFactory(data) {
 
 const queryString = window.location.search;
 const idValue = new URLSearchParams(queryString).get("id");
-

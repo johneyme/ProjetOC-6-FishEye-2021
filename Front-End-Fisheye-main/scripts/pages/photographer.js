@@ -111,42 +111,36 @@ let mediaLoading = [];
 // AFFICHAGE LIGHTBOX
 
 function lightbox() {
-  const mediaSelector = document.querySelectorAll('.source-media');
+  const mediaSelector = document.querySelectorAll(".source-media");
   const lightboxSelector = document.querySelector(".lightbox");
   const lightboxSrc = document.querySelector(".lightbox-img");
   const lightboxVideo = document.querySelector(".lightbox-video");
   const sourceVideo = document.querySelector(".source-video");
 
-  
-
   mediaSelector.forEach((source) => {
     mediaLoading.push(source.getAttribute("src"));
   });
-  
 
-
-  mediaSelector.forEach((link) =>
-   { 
-     let srcLink = link.getAttribute("src");
-  if(srcLink.includes('.jpg')) {
-    link.addEventListener("click", (e) => {
-      lightboxSelector.style.display = "block";
+  mediaSelector.forEach((link) => {
+    let srcLink = link.getAttribute("src");
+    if (srcLink.includes(".jpg")) {
+      link.addEventListener("click", (e) => {
+        lightboxSelector.style.display = "block";
         lightboxSrc.style.display = "block";
         lightboxSrc.setAttribute("src", srcLink);
         lightboxVideo.style.display = "none";
-        indexMedia = mediaLoading.indexOf(srcLink)
-  })
- }
-  else {
-    link.parentNode.addEventListener("click", (e)=> {
-      lightboxSelector.style.display = "block";
+        indexMedia = mediaLoading.indexOf(srcLink);
+      });
+    } else {
+      link.parentNode.addEventListener("click", (e) => {
+        lightboxSelector.style.display = "block";
         lightboxSrc.style.display = "none";
         lightboxVideo.style.display = "block";
         sourceVideo.setAttribute("src", srcLink);
-        indexMedia = mediaLoading.indexOf(srcLink)
-    })
-  }
-   } );
+        indexMedia = mediaLoading.indexOf(srcLink);
+      });
+    }
+  });
 }
 
 //  FONCTION CONTROLE DE LA LIGHTBOX
@@ -158,17 +152,17 @@ function lightboxController() {
   const lightboxNext = document.querySelector(".lightbox__next");
   const lightboxPrev = document.querySelector(".lightbox__prev");
   const lightboxVideo = document.querySelector(".lightbox-video");
-  const sourceVideo = document.querySelector(".source-video")
+  const sourceVideo = document.querySelector(".source-video");
 
-// -------- Utils Function to Lightbox Controller ---------------------
+  // -------- Utils Function to Lightbox Controller ---------------------
 
   function conditionNextPrev() {
-    if (mediaLoading[indexMedia].includes('.jpg')) {
+    if (mediaLoading[indexMedia].includes(".jpg")) {
       lightboxSelector.style.display = "block";
       lightboxSrc.style.display = "block";
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
       lightboxVideo.style.display = "none";
-    } else if (mediaLoading[indexMedia].includes(".mp4") ) {
+    } else if (mediaLoading[indexMedia].includes(".mp4")) {
       lightboxSelector.style.display = "block";
       lightboxSrc.style.display = "none";
       lightboxVideo.style.display = "block";
@@ -181,7 +175,7 @@ function lightboxController() {
       indexMedia++;
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     } else {
-      indexMedia = 0
+      indexMedia = 0;
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     }
   }
@@ -191,54 +185,46 @@ function lightboxController() {
       indexMedia--;
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     } else {
-      indexMedia =  mediaLoading.length - 1
+      indexMedia = mediaLoading.length - 1;
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
     }
   }
-// -------------------------------------------------------------
+  // -------------------------------------------------------------
 
-  
   // Fleche suivante Lightbox
   lightboxNext.addEventListener("click", function (e) {
     e.preventDefault();
-    nextIndexMedia()
-    conditionNextPrev()
+    nextIndexMedia();
+    conditionNextPrev();
   });
-
-
 
   // Fleche précédent Lightbox
 
   lightboxPrev.addEventListener("click", function (e) {
     e.preventDefault();
-    prevIndexMedia()
-    conditionNextPrev()
-    
+    prevIndexMedia();
+    conditionNextPrev();
   });
 
- 
   // Fermeture Ligthbox
   lightboxClose.addEventListener("click", function () {
     lightboxSelector.style.display = "none";
   });
 
-  // Controller Lightbox clavier 
-  
-  window.addEventListener("keyup", event => {
-    
+  // Controller Lightbox clavier
+
+  window.addEventListener("keyup", (event) => {
     if (event.key === "ArrowLeft") {
-    prevIndexMedia()
-    conditionNextPrev()
+      prevIndexMedia();
+      conditionNextPrev();
     }
     if (event.key === "ArrowRight") {
-      nextIndexMedia()
-      conditionNextPrev()
-      }
-      
+      nextIndexMedia();
+      conditionNextPrev();
+    }
+
     if (event.key === "Escape") {
       lightboxSelector.style.display = "none";
     }
-      
   });
-
 }

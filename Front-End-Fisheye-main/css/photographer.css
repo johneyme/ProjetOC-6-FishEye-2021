@@ -49,6 +49,10 @@
   align-items: center;
 }
 
+.likes-click:hover {
+  cursor: pointer;
+}
+
 /* DEBUT "TRIEZ PAR" */
 .sorts {
   margin-left: 90px;

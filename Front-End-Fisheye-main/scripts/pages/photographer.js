@@ -9,6 +9,7 @@ fetch(api)
     displayData(data.media);
     lightbox();
     lightboxController();
+    incrementationLike()
   });
 
 // ------------------  FONCTIONS QUI AFFICHE LES INFOS DU PHOTOGRAPHES -------------
@@ -100,6 +101,8 @@ async function displayData(medias) {
   }
 
   spanCountLike.innerHTML = count;
+
+
 }
 
 // --------------------- LIGHTBOX ----------------------------
@@ -227,4 +230,26 @@ function lightboxController() {
       lightboxSelector.style.display = "none";
     }
   });
+}
+
+function incrementationLike() {
+  let number = 0
+  const likesClick = document.querySelectorAll('div.likes-click')
+ 
+  console.log(likesClick)
+  likesClick.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      let pContent = link.getElementsByClassName('nb-of-likes')
+      console.log(pContent)
+      let likesContent = link.textContent
+      let numberLikes = parseInt(likesContent)
+      console.log(parseInt(numberLikes))
+      numberLikes++
+      number = numberLikes
+      pContent.innerHTML = number
+      console.log(parseInt(numberLikes))
+      console.log(number)
+    })
+    
+  })
 }

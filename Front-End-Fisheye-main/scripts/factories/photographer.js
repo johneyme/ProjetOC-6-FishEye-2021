@@ -42,7 +42,9 @@ function mediaFactory(data) {
               <img class="source-media" alt='${title}' src="${picture} ">
             <div class="single-media-info">
                 <h4>${title}</h4>
+                <div class="likes-click">
                 <p class="nb-of-likes">${likes} <i class="fas fa-heart"></i></p>
+                </div>
             </div>
                 `;
     const videoProfile = `

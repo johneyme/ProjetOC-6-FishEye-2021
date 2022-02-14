@@ -43,7 +43,7 @@ function mediaFactory(data) {
             <div class="single-media-info">
                 <h4>${title}</h4>
                 <div class="likes-click">
-                <p class="nb-of-likes">${likes} <i class="fas fa-heart"></i></p>
+                <p class="nb-of-likes"><span class="likes-count">${likes}</span> <i class="fas fa-heart" aria-label="logo coeur du média"></i></p>
                 </div>
             </div>
                 `;
@@ -53,7 +53,9 @@ function mediaFactory(data) {
             </video>
             <div class="single-media-info">
                 <h4>${title}</h4>
-                <p>${likes} <i class="fas fa-heart"></i></p>
+                <div class="likes-click">
+                <p class="nb-of-likes"><span class="likes-count">${likes}</span> <i class="fas fa-heart" aria-label="logo coeur du média"></i></p>
+                </div>
                 </div>
              `;
     if (image) {

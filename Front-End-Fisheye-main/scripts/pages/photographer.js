@@ -9,7 +9,7 @@ fetch(api)
     displayData(data.media);
     lightbox();
     lightboxController();
-    incrementationLike()
+    incrementationLike();
   });
 
 // ------------------  FONCTIONS QUI AFFICHE LES INFOS DU PHOTOGRAPHES -------------
@@ -102,7 +102,14 @@ async function displayData(medias) {
 
   spanCountLike.innerHTML = count;
 
-
+  const likesClick = document.querySelectorAll("div.likes-click");
+  likesClick.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      count++
+      spanCountLike.innerHTML = count;
+    });
+  });
+  
 }
 
 // --------------------- LIGHTBOX ----------------------------
@@ -232,24 +239,18 @@ function lightboxController() {
   });
 }
 
+// FONCTION INCREMENTATION LIKES MEDIA
+
 function incrementationLike() {
-  let number = 0
-  const likesClick = document.querySelectorAll('div.likes-click')
- 
-  console.log(likesClick)
+  const likesClick = document.querySelectorAll("div.likes-click");
+
+  console.log(likesClick);
   likesClick.forEach((link) => {
     link.addEventListener("click", (e) => {
-      let pContent = link.getElementsByClassName('nb-of-likes')
-      console.log(pContent)
-      let likesContent = link.textContent
-      let numberLikes = parseInt(likesContent)
-      console.log(parseInt(numberLikes))
-      numberLikes++
-      number = numberLikes
-      pContent.innerHTML = number
-      console.log(parseInt(numberLikes))
-      console.log(number)
-    })
-    
-  })
+      let likesCount = link.querySelector(".likes-count");
+      let likesContent = link.innerText;
+      likesContent++;
+      likesCount.innerHTML = likesContent
+    });
+  });
 }

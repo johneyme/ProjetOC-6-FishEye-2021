@@ -46,7 +46,6 @@ async function displayData(medias) {
     }
   });
 
-  console.log(mediaArray);
 
   // ----------------- SYSTEME DE TRI ------------------------
 
@@ -243,8 +242,6 @@ function lightboxController() {
 
 function incrementationLike() {
   const likesClick = document.querySelectorAll("div.likes-click");
-
-  console.log(likesClick);
   likesClick.forEach((link) => {
     link.addEventListener("click", (e) => {
       let likesCount = link.querySelector(".likes-count");

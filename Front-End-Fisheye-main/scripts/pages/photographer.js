@@ -46,7 +46,6 @@ async function displayData(medias) {
     }
   });
 
-
   // ----------------- SYSTEME DE TRI ------------------------
 
   orderbySelect.addEventListener("change", function () {
@@ -103,12 +102,17 @@ async function displayData(medias) {
 
   const likesClick = document.querySelectorAll("div.likes-click");
   likesClick.forEach((link) => {
+    link.addEventListener("keyup", (event) => {
+      if (event.key === "Enter") {
+        count++;
+        spanCountLike.innerHTML = count;
+      }
+    });
     link.addEventListener("click", (e) => {
-      count++
+      count++;
       spanCountLike.innerHTML = count;
     });
   });
-  
 }
 
 // --------------------- LIGHTBOX ----------------------------
@@ -243,11 +247,19 @@ function lightboxController() {
 function incrementationLike() {
   const likesClick = document.querySelectorAll("div.likes-click");
   likesClick.forEach((link) => {
+    link.addEventListener("keyup", (event) => {
+      if (event.key === "Enter") {
+        let likesCount = link.querySelector(".likes-count");
+        let likesContent = link.innerText;
+        likesContent++;
+        likesCount.innerHTML = likesContent;
+      }
+    });
     link.addEventListener("click", (e) => {
       let likesCount = link.querySelector(".likes-count");
       let likesContent = link.innerText;
       likesContent++;
-      likesCount.innerHTML = likesContent
+      likesCount.innerHTML = likesContent;
     });
   });
 }

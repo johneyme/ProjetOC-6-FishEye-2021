@@ -42,7 +42,7 @@ function mediaFactory(data) {
               <img class="source-media" alt='${title}' src="${picture} ">
             <div class="single-media-info">
                 <h4>${title}</h4>
-                <div class="likes-click">
+                <div class="likes-click" tabindex="0" >
                 <p class="nb-of-likes"><span class="likes-count">${likes}</span> <i class="fas fa-heart" aria-label="logo coeur du média"></i></p>
                 </div>
             </div>

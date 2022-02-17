@@ -22,3 +22,12 @@ sendForm.addEventListener("click", (e) => {
   );
   modal.style.display = "none";
 });
+
+const closeForm = document.querySelector(".close-form");
+  closeForm.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      closeModal()
+    }
+  });
+
+

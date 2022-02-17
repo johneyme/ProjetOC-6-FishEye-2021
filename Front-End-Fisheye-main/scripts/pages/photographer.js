@@ -133,6 +133,7 @@ function lightbox() {
   mediaSelector.forEach((source) => {
     mediaLoading.push(source.getAttribute("src"));
   });
+  
 
   mediaSelector.forEach((link) => {
     let srcLink = link.getAttribute("src");
@@ -186,20 +187,36 @@ function lightboxController() {
   function nextIndexMedia() {
     if (indexMedia < mediaLoading.length - 1) {
       indexMedia++;
+      if (mediaLoading[indexMedia].includes(".jpg")) {
       lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+    } else if (mediaLoading[indexMedia].includes(".mp4")) {
+      sourceVideo.setAttribute("src", mediaLoading[indexMedia]);
+    }
     } else {
       indexMedia = 0;
-      lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+      if (mediaLoading[indexMedia].includes(".jpg")) {
+        lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+      } else if (mediaLoading[indexMedia].includes(".mp4")) {
+        sourceVideo.setAttribute("src", mediaLoading[indexMedia]);
+      }
     }
   }
 
   function prevIndexMedia() {
     if (indexMedia > 0) {
       indexMedia--;
-      lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+      if (mediaLoading[indexMedia].includes(".jpg")) {
+        lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+      } else if (mediaLoading[indexMedia].includes(".mp4")) {
+        sourceVideo.setAttribute("src", mediaLoading[indexMedia]);
+      }
     } else {
       indexMedia = mediaLoading.length - 1;
-      lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+      if (mediaLoading[indexMedia].includes(".jpg")) {
+        lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+      } else if (mediaLoading[indexMedia].includes(".mp4")) {
+        sourceVideo.setAttribute("src", mediaLoading[indexMedia]);
+      }
     }
   }
   // -------------------------------------------------------------

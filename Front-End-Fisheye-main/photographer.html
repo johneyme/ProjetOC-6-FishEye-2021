@@ -22,6 +22,35 @@
     </header>
     <main id="main">
       <section class="photograph-profile"></section>
+        <!-- DEBUT MODAL CONTACT -->
+
+    <div id="contact_modal">
+      <div class="modal">
+        <header>
+          <h2>Contactez-moi<br /><span class="span-name-form"></span></h2>
+          <img
+            class="close-form"
+            src="assets/icons/close.svg"
+            alt="Croix de fermeture"
+            onclick="closeModal()"
+            tabindex="0" />
+        </header>
+        <form action="" method="get" class="info-form">
+          <div class="info-form">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" />
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" />
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" />
+            <label for="message">Votre message</label>
+            <textarea type="text" name="message" id="message"></textarea>
+          </div>
+          <button class="contact_button">Envoyer</button>
+        </form>
+      </div>
+    </div>
+    <!--FIN MODAL CONTACT-->
       <label for="orderby" class="sorts">Trier par:</label>
       <select
         aria-label="selection tri des médias"
@@ -53,7 +82,7 @@
         <video class="lightbox-video" controls>
           <source
             class="source-video"
-            src="assets/media/930/Sport_Tricks_in_the_air.mp4"
+            src=""
           />
         </video>
       </div>
@@ -61,34 +90,7 @@
 
     <!-- FIN LIGHTBOX -->
 
-    <!-- DEBUT MODAL CONTACT -->
-
-    <div id="contact_modal">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi<br /><span class="span-name-form"></span></h2>
-          <img
-            src="assets/icons/close.svg"
-            alt="Croix de fermeture"
-            onclick="closeModal()"
-          />
-        </header>
-        <form action="" method="get" class="info-form">
-          <div class="info-form">
-            <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom" />
-            <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" />
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" />
-            <label for="message">Votre message</label>
-            <textarea type="text" name="message" id="message"></textarea>
-          </div>
-          <button class="contact_button">Envoyer</button>
-        </form>
-      </div>
-    </div>
-    <!--FIN MODAL CONTACT-->
+  
 
     <!-- Factories -->
     <script src="scripts/factories/Photographer.js"></script>

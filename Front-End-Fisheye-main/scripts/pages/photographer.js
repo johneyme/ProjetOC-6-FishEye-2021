@@ -128,7 +128,7 @@ function lightbox() {
   const lightboxSelector = document.querySelector(".lightbox");
   const lightboxSrc = document.querySelector(".lightbox-img");
   const lightboxVideo = document.querySelector(".lightbox-video");
-  const sourceVideo = document.querySelector(".source-video");
+  
 
   mediaSelector.forEach((source) => {
     mediaLoading.push(source.getAttribute("src"));
@@ -150,7 +150,14 @@ function lightbox() {
         lightboxSelector.style.display = "block";
         lightboxSrc.style.display = "none";
         lightboxVideo.style.display = "block";
+        let sourceVideo = document.createElement("source")
+        sourceVideo.classList.add("source-video")
         sourceVideo.setAttribute("src", srcLink);
+        let oldVideo = document.querySelector(".source-video")
+        if (oldVideo) {
+          oldVideo.remove()
+        }
+        lightboxVideo.appendChild(sourceVideo)
         indexMedia = mediaLoading.indexOf(srcLink);
       });
     }
@@ -180,10 +187,18 @@ function lightboxController() {
       lightboxSelector.style.display = "block";
       lightboxSrc.style.display = "none";
       lightboxVideo.style.display = "block";
+      let sourceVideo = document.createElement("source")
+      sourceVideo.classList.add("source-video")
       sourceVideo.setAttribute("src", mediaLoading[indexMedia]);
+      let oldVideo = document.querySelector(".source-video")
+      if (oldVideo) {
+        oldVideo.remove()
+      }
+      lightboxVideo.appendChild(sourceVideo)
     }
   }
 
+  // REMOVE APPENDCHILD SRCVIDEO
   function nextIndexMedia() {
     if (indexMedia < mediaLoading.length - 1) {
       indexMedia++;

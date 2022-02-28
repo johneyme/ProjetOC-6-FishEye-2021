@@ -59,7 +59,7 @@ async function displayData(medias) {
       mediaLoading = [];
       lightbox();
 
-      // Tri par date  --- A FAIRE ---
+      // Tri par date  
     } else if (this.value == "date") {
       mediaArray.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
@@ -68,7 +68,7 @@ async function displayData(medias) {
       affichageMedia();
       mediaLoading = [];
       lightbox();
-      // Tri par alphabétique --- A FAIRE ---
+      // Tri par alphabétique 
     } else if (this.value == "alphabetique") {
       mediaArray.sort(function (a, b) {
         if (a.title < b.title) {

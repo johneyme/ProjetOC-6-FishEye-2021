@@ -198,7 +198,6 @@ function lightboxController() {
     }
   }
 
-  // REMOVE APPENDCHILD SRCVIDEO
   function nextIndexMedia() {
     if (indexMedia < mediaLoading.length - 1) {
       indexMedia++;

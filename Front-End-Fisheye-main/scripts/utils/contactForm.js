@@ -30,4 +30,11 @@ const closeForm = document.querySelector(".close-form");
     }
   });
 
+  window.addEventListener("keyup", (event) => {
+    if (event.key === "Escape") {
+      closeModal()
+    }
+   
+  });
+
 

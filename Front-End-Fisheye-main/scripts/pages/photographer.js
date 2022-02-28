@@ -55,9 +55,13 @@ async function displayData(medias) {
         return a.likes - b.likes;
       });
       mediasSection.innerHTML = "";
+      count = 0;
       affichageMedia();
       mediaLoading = [];
       lightbox();
+      incrementationLike();
+      spanCountLike.innerHTML = count;
+      globalLike();
 
       // Tri par date  
     } else if (this.value == "date") {
@@ -65,9 +69,13 @@ async function displayData(medias) {
         return new Date(b.date) - new Date(a.date);
       });
       mediasSection.innerHTML = "";
+      count = 0;
       affichageMedia();
       mediaLoading = [];
       lightbox();
+      incrementationLike();
+      spanCountLike.innerHTML = count;
+      globalLike();
       // Tri par alphabétique 
     } else if (this.value == "alphabetique") {
       mediaArray.sort(function (a, b) {
@@ -76,9 +84,13 @@ async function displayData(medias) {
         }
       });
       mediasSection.innerHTML = "";
+      count = 0;
       affichageMedia();
       mediaLoading = [];
       lightbox();
+      incrementationLike()
+      spanCountLike.innerHTML = count;
+      globalLike();
     }
   });
 
@@ -100,6 +112,8 @@ async function displayData(medias) {
 
   spanCountLike.innerHTML = count;
 
+  function globalLike() {
+
   const likesClick = document.querySelectorAll("div.likes-click");
   likesClick.forEach((link) => {
     link.addEventListener("keyup", (event) => {
@@ -113,6 +127,9 @@ async function displayData(medias) {
       spanCountLike.innerHTML = count;
     });
   });
+  } 
+
+  globalLike()
 }
 
 // --------------------- LIGHTBOX ----------------------------

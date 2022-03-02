@@ -7,15 +7,20 @@ function photographerFactory(data) {
 
   function getUserCardDOM() {
     const article = document.createElement("article");
+    
 
     const photographerCard = `
-            <img alt='photo de ${name}' src="${picture}">
-                <a class="photographClick" href="photographer.html?id=${id}">
+                
+               <a class="photograph-click" href="photographer.html?id=${id}" tabindex="3">
+                  <img alt='photo de ${name}' src="${picture}">  
                     <h2>${name}</h2>
                 </a>
+                <div class="info-sup-photograph" tabindex="3">
                 <h3>${city}, ${country}</h3>
                 <p class="tagline">${tagline}</p>
                 <p class="price">${price}€/jour</p>
+                <div>
+              
             `;
     article.innerHTML = photographerCard;
 
@@ -32,17 +37,16 @@ function mediaFactory(data) {
   const picture = `assets/media/${idValue}/${image}`;
   const movie = `assets/media/${idValue}/${video}`;
 
-  // faire fonction getuservideo
 
   function getUserProfileDOM() {
     const section = document.createElement("section");
     section.setAttribute("id", "single-media");
-    section.setAttribute("tabindex", 0);
+    section.setAttribute("tabindex", 9);
     const mediaProfile = `
               <img class="source-media" alt='${title}' src="${picture} ">
             <div class="single-media-info">
-                <h4>${title}</h4>
-                <div class="likes-click" tabindex="0" >
+                <h4 tabindex="9">${title}</h4>
+                <div class="likes-click" tabindex="9" >
                 <p class="nb-of-likes"><span class="likes-count">${likes}</span> <i class="fas fa-heart" aria-label="logo coeur du média"></i></p>
                 </div>
             </div>
@@ -81,12 +85,14 @@ function profileFactory(data) {
     section.setAttribute("class", "photograph-header");
     const profile = `
              <div class="information-profile">
-             <h2>${name}</h2>
+             <h2 tabindex="2">${name}</h2>
+              <div tabindex="3" class="info-sup-photographpage">
               <h3>${city}, ${country}</h3>
               <p class="tagline">${tagline}</p>
                 </div>
-              <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-              <img alt="photo de ${name}" src="${picture}"></img>
+              </div>
+              <button class="contact_button" onclick="displayModal()" tabindex="4">Contactez-moi</button>
+              <img alt="photo de ${name}" src="${picture}" tabindex="5"></img>
             `;
     section.innerHTML = profile;
     return section;

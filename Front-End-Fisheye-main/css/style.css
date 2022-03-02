@@ -43,10 +43,12 @@ h1 {
   color: #d3573c;
   font-size: 36px;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .photographer_section article a {
   text-decoration: none;
+ 
 }
 
 .photographer_section article h3 {
@@ -54,6 +56,11 @@ h1 {
   font-size: 15px;
   margin: 0;
 }
+
+.info-sup-photograph {
+  text-align: center;
+}
+
 .photographer_section article .tagline {
   font-size: 15px;
   margin: 0;
@@ -70,4 +77,8 @@ h1 {
   height: 250px;
   width: 250px;
   object-fit: cover;
+}
+
+.photograph-click{
+  text-align: center;
 }

@@ -1,3 +1,5 @@
+// Fetch use to API connect 
+/*
 const api = "./data/photographers.json";
 
 fetch(api)
@@ -11,6 +13,9 @@ fetch(api)
     lightboxController();
     incrementationLike();
   });
+  */
+
+
 
 // ------------------  FONCTIONS QUI AFFICHE LES INFOS DU PHOTOGRAPHES -------------
 
@@ -19,7 +24,9 @@ async function displayProfile(photographers) {
   const spanPrice = document.querySelector(".span-price-aside");
   const spanNameForm = document.querySelector(".span-name-form");
 
-  photographers.forEach((photographer) => {
+  //// To fetch use uncomment line 35 and comment line 36
+  // photographers.forEach((photographer) => {
+  photographersData.photographers.forEach((photographer) => {
     if (photographer.id == idValue) {
       const profileModel = profileFactory(photographer);
       const profileCardDOM = profileModel.getProfileDOM();
@@ -114,20 +121,20 @@ async function displayData(medias) {
 
   function globalLike() {
 
-  const likesClick = document.querySelectorAll("div.likes-click");
-  likesClick.forEach((link) => {
-    link.addEventListener("keyup", (event) => {
-      if (event.key === "Enter") {
+    const likesClick = document.querySelectorAll("div.likes-click");
+    likesClick.forEach((link) => {
+      link.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+          count++;
+          spanCountLike.innerHTML = count;
+        }
+      });
+      link.addEventListener("click", (e) => {
         count++;
         spanCountLike.innerHTML = count;
-      }
+      });
     });
-    link.addEventListener("click", (e) => {
-      count++;
-      spanCountLike.innerHTML = count;
-    });
-  });
-  } 
+  }
 
   globalLike()
 }
@@ -145,12 +152,14 @@ function lightbox() {
   const lightboxSelector = document.querySelector(".lightbox");
   const lightboxSrc = document.querySelector(".lightbox-img");
   const lightboxVideo = document.querySelector(".lightbox-video");
-  
 
+
+  //// To fetch use uncomment line 35 and comment line 36
+  //mediaSelector.forEach((source) => {
   mediaSelector.forEach((source) => {
     mediaLoading.push(source.getAttribute("src"));
   });
-  
+
 
   mediaSelector.forEach((link) => {
     let srcLink = link.getAttribute("src");
@@ -219,10 +228,10 @@ function lightboxController() {
     if (indexMedia < mediaLoading.length - 1) {
       indexMedia++;
       if (mediaLoading[indexMedia].includes(".jpg")) {
-      lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
-    } else if (mediaLoading[indexMedia].includes(".mp4")) {
-      sourceVideo.setAttribute("src", mediaLoading[indexMedia]);
-    }
+        lightboxSrc.setAttribute("src", mediaLoading[indexMedia]);
+      } else if (mediaLoading[indexMedia].includes(".mp4")) {
+        sourceVideo.setAttribute("src", mediaLoading[indexMedia]);
+      }
     } else {
       indexMedia = 0;
       if (mediaLoading[indexMedia].includes(".jpg")) {
@@ -311,3 +320,12 @@ function incrementationLike() {
     });
   });
 }
+
+//// This code use a mock data to github pages works
+// The right use is fetch fonction
+console.log(photographersData)
+displayProfile(photographersData);
+displayData(photographersData.media);
+lightbox();
+lightboxController();
+incrementationLike();

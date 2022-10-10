@@ -1,10 +1,14 @@
-const api = "./data/photographers.json";
+// Fetch use to API connect 
+/*const api = "./data/photographers.json";
 
 fetch(api)
   .then((response) => {
     return response.json();
   })
   .then((data) => displayData(data.photographers));
+  */
+
+
 
 // FONCTION QUI AFFICHE TOUS LES PHOTOGRAPHES
 
@@ -18,3 +22,7 @@ async function displayData(photographers) {
     photographersSection.appendChild(userCardDOM);
   });
 }
+
+//// This code use a mock data to github pages works
+// The right use is fetch fonction
+displayData(photographersData.photographers)

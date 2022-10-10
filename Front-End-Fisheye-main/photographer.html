@@ -1,48 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="assets/favicon.ico" />
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    />
-    <title>Fisheye - photographe</title>
-  </head>
-  <body>
-    <header>
-      <a href="index.html" tabindex="1">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"
-      /></a>
-    </header>
-    <main id="main">
-      <section class="photograph-profile"></section>
-        <!-- DEBUT MODAL CONTACT -->
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="assets/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <title>Fisheye - photographe</title>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" tabindex="1">
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" /></a>
+  </header>
+  <main id="main">
+    <section class="photograph-profile"></section>
+    <!-- DEBUT MODAL CONTACT -->
 
     <div id="contact_modal" tabindex="0">
       <div class="modal">
         <header>
           <h2>Contactez-moi<br /><span class="span-name-form"></span></h2>
-          <img
-            class="close-form"
-            src="assets/icons/close.svg"
-            alt="Croix de fermeture"
-            onclick="closeModal()"
-             />
+          <img class="close-form" src="assets/icons/close.svg" alt="Croix de fermeture" onclick="closeModal()" />
         </header>
         <form action="" method="get" class="info-form">
           <div class="info-form">
             <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom" aria-labelledby="prenom formulaire"/>
+            <input type="text" name="prenom" id="prenom" aria-labelledby="prenom formulaire" />
             <label for="nom">Nom</label>
             <input type="text" name="nom" id="nom" aria-labelledby="nom formulaire" />
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" aria-labelledby="email formulaire"/>
+            <input type="email" name="email" id="email" aria-labelledby="email formulaire" />
             <label for="message">Votre message</label>
             <textarea type="text" name="message" id="message" aria-labelledby="message formulaire"></textarea>
           </div>
@@ -51,52 +41,48 @@
       </div>
     </div>
     <!--FIN MODAL CONTACT-->
-      <label for="orderby" class="sorts" tabindex="7">Trier par:</label>
-      <select
-        aria-label="selection tri des médias"
-        name="Trier par:"
-        id="orderby"
-        tabindex="8"
-      >
-        <option value="likes" selected="selected">Popularité</option>
-        <option value="alphabetique">Alphabétique</option>
-        <option value="date">Date</option>
-      </select>
+    <label for="orderby" class="sorts" tabindex="7">Trier par:</label>
+    <select aria-label="selection tri des médias" name="Trier par:" id="orderby" tabindex="8">
+      <option value="likes" selected="selected">Popularité</option>
+      <option value="alphabetique">Alphabétique</option>
+      <option value="date">Date</option>
+    </select>
 
-      <section class="media_section"></section>
-      <aside class="info-media" tabindex="6">
-        <p>
-          <span class="span-count-like"></span>
-          <i class="fas fa-heart" aria-label="logo coeur"></i>
-        </p>
-        <p><span class="span-price-aside"></span>€ /jour</p>
-      </aside>
-    </main>
+    <section class="media_section"></section>
+    <aside class="info-media" tabindex="6">
+      <p>
+        <span class="span-count-like"></span>
+        <i class="fas fa-heart" aria-label="logo coeur"></i>
+      </p>
+      <p><span class="span-price-aside"></span>€ /jour</p>
+    </aside>
+  </main>
 
-    <!-- DEBUT LIGHTBOX -->
-    <div class="lightbox" tabindex="1">
-      <button class="lightbox__close" aria-label="Croix de fermeture"></button>
-      <button class="lightbox__next" aria-label="Flèche suivant"></button>
-      <button class="lightbox__prev" aria-label="Flèche précédent"></button>
-      <div class="lightbox__container">
-        <img class="lightbox-img" src="" alt="image de la lightbox"/>
-        <video class="lightbox-video" alt="video de la lightbox" controls>
-          <source
-            class="source-video"
-          />
-        </video>
-      </div>
+  <!-- DEBUT LIGHTBOX -->
+  <div class="lightbox" tabindex="1">
+    <button class="lightbox__close" aria-label="Croix de fermeture"></button>
+    <button class="lightbox__next" aria-label="Flèche suivant"></button>
+    <button class="lightbox__prev" aria-label="Flèche précédent"></button>
+    <div class="lightbox__container">
+      <img class="lightbox-img" src="" alt="image de la lightbox" />
+      <video class="lightbox-video" alt="video de la lightbox" controls>
+        <source class="source-video" />
+      </video>
     </div>
+  </div>
 
-    <!-- FIN LIGHTBOX -->
+  <!-- FIN LIGHTBOX -->
 
-  
 
-    <!-- Factories -->
-    <script src="scripts/factories/Photographer.js"></script>
-    <!-- Utils -->
-    <script src="scripts/utils/contactForm.js"></script>
-    <!-- Pages -->
-    <script src="scripts/pages/photographer.js"></script>
-  </body>
+  <!-- Utils -->
+  <script src="scripts/utils/contactForm.js"></script>
+  <script src="data/photograph-mock.js"></script>
+
+  <!-- Factories -->
+  <script src="scripts/factories/Photographer.js"></script>
+
+  <!-- Pages -->
+  <script src="scripts/pages/photographer.js"></script>
+</body>
+
 </html>
